@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Sparkfun Inventors Kit: Circuit #2</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="sparkfun-inventors-kit-circuit-2">Sparkfun Inventors Kit: Circuit #2</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>We will use <strong>Arduino</strong> as the programming language for our Sparkfun Inventors Kit circuits. The code has already been written for you. For every circuit, our goal is to:</p>
+<ol>
+<li>Read the code and understand what it does.</li>
+<li>Build it in Circuits.io to familiarize yourself with the components.</li>
+<li>Build the circuit with real components.</li>
+<li>Run the code to show real-life behavior.</li>
+<li>Modify the code to change the circuit’s behavior.</li>
+</ol>
+<p>Read this document <strong>first</strong> before reading the comments in the Arduino <strong>sketch</strong>.</p>
+<p><em>All sketches were written by SparkFun Electronics,
+with lots of help from the Arduino community.
+This code is completely free for any use.
+Visit <a href="http://learn.sparkfun.com/products/2">http://learn.sparkfun.com/products/2</a> for SIK information.
+Visit <a href="http://www.arduino.cc">http://www.arduino.cc</a> to learn about the Arduino.</em></p>
+<h2 id="overview">Overview</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Circuit #2: POTENTIOMETER</p>
+<blockquote>
+<p>Measure the position of a potentiometer and use it to
+control the blink rate of an LED. Turn the knob to make
+it blink faster or slower!  </p>
+</blockquote>
+<p>A potentiometer, aka <strong>pot</strong>, is a variable resistor. As you turn the knob, the resistance changes. it is like swapping out resistors of higher and lower values. The change of resistance will change the voltage measured at different points in the circuit.</p>
+<p>Circuit #2 looks similar to Circuit #1. What’s the difference?</p>
+<ul>
+<li>In Circuit #1, we pre-determined the amount of time the code waited through <code>delay(1000)</code></li>
+<li>Pre-deteriminating is also known as <strong>hard-coding</strong>. The two values <strong>hard-coded</strong> were:<ul>
+<li>the pin number <strong>13</strong></li>
+<li>the delay of <strong>1000 milliseconds</strong></li>
+</ul>
+</li>
+<li>In Circuit #2, we will tell the circuit to listen to the voltage measured by <code>Analog 0</code> pin. The voltage will change as the <em>potentiometer</em> is turned in either direction.</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>int sensorPin = <span class="hljs-number">0</span>;
+int ledPin = <span class="hljs-number">13</span>;
+
+void setup()
+{
+    pinMode(ledPin, OUTPUT);
+}
+
+void <span class="hljs-keyword">loop</span>()
+{
+  int sensorValue;
+  sensorValue = analogRead(sensorPin);    
+  digitalWrite(ledPin, HIGH);     
+  delay(sensorValue);             
+  digitalWrite(ledPin, LOW);
+  delay(sensorValue);   
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <h2 id="variables">Variables</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>In programming, we use <strong>variables</strong> to allow the value value of a variable to change easily or to be based on a sensor reading. Think of a <strong>variable</strong> like a container that has a label. The label is the <strong>name</strong> of the variable. In the container, one value can be placed at a time.</p>
+<p>You must <strong>declare</strong> variables before you use them, so that the computer knows about them. Here we’ll declare two integer variables, and at the same time, <strong>initialize</strong> them to specific values. We’re doing this so that further down, we can refer to
+the pins by name rather than number.</p>
+<ul>
+<li><p>If we change our mind about the <strong>value</strong> of a <strong>variable</strong>, we only need to change the value once when it is <strong>initialized</strong>. Then, all instances of that <strong>variable</strong> will change its value.</p>
+</li>
+<li><p>Note that variable names are case-sensitive! If you get an “(variable) was not declared in this scope” error, double-check that you typed the name correctly.*</p>
+</li>
+</ul>
+<p>In particular, these two variables are <strong>global</strong> meaning that they can be used throughout the entire code. There will be one <strong>local</strong> variable declared within the <code>loop()</code> block.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>int sensorPin = <span class="hljs-number">0</span>;
+int ledPin = <span class="hljs-number">13</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h2 id="setup">Setup</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>This is identical to Circuit #1 except instead of using <code>13</code> as the channel, we use the <strong>variable</strong> <code>ledPin</code>. What is the value of <code>ledPin</code>? It is initiatlized in the section above the <code>setup()</code> block.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>void setup()
+{
+    pinMode(ledPin, OUTPUT);
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <h2 id="loop">Loop</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>The bottom four lines of code have a similar behavior compared to Circuit #1. The first two lines of code are important to making Circuit #2 work.</p>
+<p>The first line is declares the <strong>local</strong> variable <code>sensorValue</code>. This <strong>variable</strong> will be used to store the value that is read from the <code>Analog 0</code> pin. <code>sensorValue</code> would not be accessible to any other <strong>functions</strong> written in the program. It is only accessible within <code>loop()</code>.</p>
+<p>The second line says to set <code>sensorValue</code> to whatever value the function <code>analogRead()</code> reads.</p>
+<p><code>analogRead()</code> is a function that reads the value from the <code>Analog 0</code> pin. How do we know it is Channel 0? The <strong>argument</strong> in <code>analogRead()</code> is the variable <code>sensorPin</code>. That was initialized to the value of <code>0</code> earlier.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>int sensorValue;
+sensorValue = analogRead(sensorPin);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Circuit #2 is set up so that <code>Analog 0</code> is reading from the wiper (middle pin) of the potentiometer. As the potentiometer is turned, that voltage reading from the wiper will change. The voltage reading is read by <code>Analog 0</code> which in turn is assigned to <code>sensorValue</code>. </p>
+<p>How is <code>sensorValue</code> used?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>digitalWrite(ledPin, HIGH);     
+delay(sensorValue);             
+digitalWrite(ledPin, LOW);
+delay(sensorValue);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <h2 id="summary">Summary</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>To conclude, Circuit #2 is similar to Circuit #1 in behavior. The difference is that we now use <code>Analog 0</code> as an <strong>input</strong> channel to “listen” or measure the voltage at a certian point in the circuit.</p>
+<p>The voltage at that measurement point will change when you turn the knob of the potentiomter. The measured voltage is then used to tell the circuit how long to <code>delay()</code>.</p>
+<p>The <code>loop()</code> repeats the instructions continuously. At any piont in time, if the potentiometer is turned, then the measured voltage changes, thus changing  <code>sensorValue</code> and thus changing the <code>delay</code>.</p>
+<p>The simple way to describe the beavhior is: <strong>as you turn the potentiometer knob one way or the other, the LED will blink faster or slower</strong></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>int sensorPin = <span class="hljs-number">0</span>;
+int ledPin = <span class="hljs-number">13</span>;
+
+void setup()
+{
+    pinMode(ledPin, OUTPUT);
+}
+
+void <span class="hljs-keyword">loop</span>()
+{
+  int sensorValue;
+  sensorValue = analogRead(sensorPin);    
+  digitalWrite(ledPin, HIGH);     
+  delay(sensorValue);             
+  digitalWrite(ledPin, LOW);
+  delay(sensorValue);   
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
