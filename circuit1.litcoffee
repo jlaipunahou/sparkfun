@@ -44,7 +44,7 @@ and repeat forever.
 A **function** is a named block of code, that performs a specific task. Many useful, essential **functions** are already built-in to the Arduino; others you'll name and write yourself for your own purposes.
 
 
-All Arduino sketches MUST have two specific **functions**, named `setup()` and `loop()`. The Arduino runs these functions automatically when it starts up or if you press the reset button. 
+All Arduino sketches MUST have two specific **functions**, named `setup()` and `loop()`. The Arduino runs these functions automatically when it starts up or if you press the reset button.
 * `setup()` is run only *once* at the beginning
 * `loop()` is run *continuously*
 

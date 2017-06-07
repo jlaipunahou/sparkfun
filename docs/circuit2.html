@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Sparkfun Inventors Kit: Circuit #2</title>
+  <title>SparkFun Inventor's Kit: Circuit #2</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -21,7 +21,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h1 id="sparkfun-inventors-kit-circuit-2">Sparkfun Inventors Kit: Circuit #2</h1>
+              <h1 id="sparkfun-inventor-s-kit-circuit-2">SparkFun Inventor’s Kit: Circuit #2</h1>
 
             </div>
             
@@ -34,7 +34,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>We will use <strong>Arduino</strong> as the programming language for our Sparkfun Inventors Kit circuits. The code has already been written for you. For every circuit, our goal is to:</p>
+              <p>We will use <strong>Arduino</strong> as the programming language for our SparkFun Inventor’s Kit circuits. The code has already been written for you. For every circuit, our goal is to:</p>
 <ol>
 <li>Read the code and understand what it does.</li>
 <li>Build it in Circuits.io to familiarize yourself with the components.</li>
@@ -76,6 +76,7 @@ it blink faster or slower!  </p>
 <li>the delay of <strong>1000 milliseconds</strong></li>
 </ul>
 </li>
+<li>Instead of <strong>hard-coding</strong>, we will use <strong>variables</strong>.</li>
 <li>In Circuit #2, we will tell the circuit to listen to the voltage measured by <code>Analog 0</code> pin. The voltage will change as the <em>potentiometer</em> is turned in either direction.</li>
 </ul>
 
@@ -244,7 +245,7 @@ delay(sensorValue);</pre></div></div>
               <p>To conclude, Circuit #2 is similar to Circuit #1 in behavior. The difference is that we now use <code>Analog 0</code> as an <strong>input</strong> channel to “listen” or measure the voltage at a certian point in the circuit.</p>
 <p>The voltage at that measurement point will change when you turn the knob of the potentiomter. The measured voltage is then used to tell the circuit how long to <code>delay()</code>.</p>
 <p>The <code>loop()</code> repeats the instructions continuously. At any piont in time, if the potentiometer is turned, then the measured voltage changes, thus changing  <code>sensorValue</code> and thus changing the <code>delay</code>.</p>
-<p>The simple way to describe the beavhior is: <strong>as you turn the potentiometer knob one way or the other, the LED will blink faster or slower</strong></p>
+<p>The simple way to describe the beavhior is: <strong>as you turn the potentiometer knob one way or the other, the LED will blink faster or slower</strong>.</p>
 
             </div>
             

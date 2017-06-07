@@ -28,15 +28,13 @@ The latest version of the online guide by SparkFun is found [here](https://learn
 
 ## Circuit 1
 
-*Turn an LED on for one second, off for one second,
-and repeat forever.*
+> Turn an LED on for one second, off for one second,
+and repeat forever.
 
-A **function** is a named block of code, that performs a specific task. Many useful, essential **functions** are already built-in to the Arduino; others you'll name and write yourself for your own purposes.
+In this circuit, we learned about the two main parts of an Arduino program, `setup()` and `loop()`.
 
+In `setup()` the `pinMode()` function needed to be activated.
 
-All Arduino sketches MUST have two specific **functions**, named `setup()` and `loop()`. The Arduino runs these functions automatically when it starts up or if you press the reset button.
-* `setup()` is run only *once* at the beginning
-* `loop()` is run *continuously*
 
     void setup()
     {
@@ -49,75 +47,28 @@ All Arduino sketches MUST have two specific **functions**, named `setup()` and `
       digitalWrite(13, LOW);
       delay(1000);
     }
+## Circuit 2
 
+> Measure the position of a potentiometer and use it to
+control the blink rate of an LED. Turn the knob to make
+it blink faster or slower!
 
-Setup
-----
+In this circuit, we learned about **variables** and the advantages over **hard-coding** values. We used the **potentiometer** to vary the resistance in a circuit. What are everyday examples of control knobs?
 
-The Arduino has 13 digital input/output pins. These pins can be configured as either **inputs** or **outputs**. **Output** means it is sending out information. **Input** means it is receiving information, often from sensors.
-
-`pinMode()` is a built-in function. It takes two values, which you type in
-the parenthesis after the function name. These two values are the **arguments** of the function. **Arguments** may also be known as **parameters** or **inputs**.
-
-* The first value is a pin number.
-* The second value is the word `INPUT` or `OUTPUT`.
-
-Here we'll set up pin 13 (the one connected to a LED) to be an output. We're doing this because we need to send voltage
-"out" of the Arduino to the LED.
+    int sensorPin = 0;
+    int ledPin = 13;
 
     void setup()
     {
-      pinMode(13, OUTPUT);
+        pinMode(ledPin, OUTPUT);
     }
 
-Loop
-----
-
-Each of the 13 digital pins send either an `ON` or an `OFF` signal. Another way to view it is to think of the `ON` being a `HIGH` voltage of 5 Volts or a `LOW` voltage of 0 volts.
-
-Because we have an LED connected to pin 13, if we make that
-output HIGH, the LED will get voltage and light up. If we make
-that output LOW, the LED will have no voltage and turn off.
-
-`digitalWrite()` is the built-in function we use to make an
-output pin HIGH or LOW. It takes two **arguments**
-* The first value is a pin number.
-* The second value is either `HIGH` or `LOW`
-* In other words, `digitalWrite()` *tells the LED to turn on or off*
-
-
     void loop()
     {
-      digitalWrite(13, HIGH);
-
-
-
-`delay()` is a **function** that pauses for a given amount of time. It takes one value, the amount of time to wait, measured in milliseconds. There are 1000 milliseconds in a second, so if you `delay(1000)`, it will pause for exactly one second.
-
-      delay(1000);
-
-To finish this code, `digitalWrite(13, LOW)` turns off the LED and then `delay(1000)` pauses the code.
-
-      digitalWrite(13, LOW);
-      delay(1000);
-
-
-Because all of this is in a `loop()`, after the second `delay()`, your computer will go back to the beginning and follow the instructions in `loop()` again.
-
-Summary
----
-To conclude, after the `setup()` function, the `loop()` conists of four simple commands that translate to the behavior of the blinking LED
-
-1. Turn on the LED
-2. Wait a second
-3. Turn off the LED
-4. Wait a second
-5. Go back to step 1
-
-    void loop()
-    {
-      digitalWrite(13, HIGH);
-      delay(1000);
-      digitalWrite(13, LOW);
-      delay(1000);
+      int sensorValue;
+      sensorValue = analogRead(sensorPin);
+      digitalWrite(ledPin, HIGH);
+      delay(sensorValue);
+      digitalWrite(ledPin, LOW);
+      delay(sensorValue);
     }
