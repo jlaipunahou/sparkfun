@@ -22,12 +22,12 @@ The latest version of the online guide by SparkFun is found [here](https://learn
 
 1.  [Blinking an LED](circuit1.html)
 2.  [Reading a Potentiometer](circuit2.html)
-3.  [Driving an RGB LED](circuit3.html)
+3.  Driving an RGB LED
 
 
 
-## Circuit 1
-
+Circuit 1
+---
 > Turn an LED on for one second, off for one second,
 and repeat forever.
 
@@ -47,13 +47,15 @@ In `setup()` the `pinMode()` function needed to be activated.
       digitalWrite(13, LOW);
       delay(1000);
     }
-## Circuit 2
 
+Circuit 2
+---
 > Measure the position of a potentiometer and use it to
 control the blink rate of an LED. Turn the knob to make
 it blink faster or slower!
 
 In this circuit, we learned about **variables** and the advantages over **hard-coding** values. We used the **potentiometer** to vary the resistance in a circuit. What are everyday examples of control knobs?
+
 
     int sensorPin = 0;
     int ledPin = 13;
