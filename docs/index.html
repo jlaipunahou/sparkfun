@@ -5,11 +5,44 @@
   <title>SparkFun Inventor's Kit Overview Page</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-  <link rel="stylesheet" media="all" href="docco.css" />
+  <link rel="stylesheet" media="all" href="doccoAlt.css" />
 </head>
 <body>
   <div id="container">
     <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="circuit1.html">
+                  circuit1.litcoffee
+                </a>
+              
+                
+                <a class="source" href="circuit2.html">
+                  circuit2.litcoffee
+                </a>
+              
+                
+                <a class="source" href="circuit3.html">
+                  circuit3.litcoffee
+                </a>
+              
+                
+                <a class="source" href="index.html">
+                  index.litcoffee
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
     
     <ul class="sections">
         
@@ -45,16 +78,9 @@
 <p><em>Modifications have been made from the originals: All sketches were written by SparkFun Electronics,
 with lots of help from the Arduino community.
 This code is completely free for any use.
-Visit <a href="http://learn.sparkfun.com/products/2">http://learn.sparkfun.com/products/2</a> for SIK information.
 Visit <a href="http://www.arduino.cc">http://www.arduino.cc</a> to learn about the Arduino.</em></p>
-<p>16 circuits in total. Click on the link to go to the page with detailed explanations. Scroll down on this page to see a summary of each circuit.</p>
-<p>The latest version of the online guide by SparkFun is found <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33">here</a></p>
-<ol>
-<li><a href="circuit1.html">Blinking an LED</a></li>
-<li><a href="circuit2.html">Reading a Potentiometer</a></li>
-<li>Driving an RGB LED</li>
-</ol>
-<h2 id="circuit-1">Circuit 1</h2>
+<p>The latest version of the online guide by SparkFun is found <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33">here</a>.</p>
+<hr>
 
             </div>
             
@@ -67,12 +93,56 @@ Visit <a href="http://www.arduino.cc">http://www.arduino.cc</a> to learn about t
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
+              <p>There are 16 circuits in total. Click on the link to go to the page with detailed explanations. Scroll down on this page to see a summary of each circuit.</p>
+<ol>
+<li><a href="circuit1.html">Blinking an LED</a></li>
+<li><a href="circuit2.html">Reading a Potentiometer</a></li>
+<li><a href="circuit3.html">Driving an RGB LED</a></li>
+<li><a href="circuit4.html">Driving Multiple LEDs</a></li>
+<li><a href="circuit5.html">Push Buttons</a></li>
+<li><a href="circuit6.html">Reading a Photoresistor</a></li>
+<li>Reading a Temperature Sensor</li>
+<li>Driving a Servo Motor</li>
+<li>Using a Flex Sensor</li>
+<li>Reading a Soft Potentiometer</li>
+<li>Using a Piezo Buzzer</li>
+<li>Driving a Motor</li>
+<li>Using Relays</li>
+<li>Using a Shift Register</li>
+<li>Using an LCD</li>
+<li>Simon Says</li>
+</ol>
+<h2 id="circuit-1">Circuit 1</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
               <blockquote>
-<p>Turn an LED on for one second, off for one second,
-and repeat forever.</p>
+<p>Turn an LED on for one second, off for one second, and repeat forever.</p>
 </blockquote>
-<p>In this circuit, we learned about the two main parts of an Arduino program, <code>setup()</code> and <code>loop()</code>.</p>
-<p>In <code>setup()</code> the <code>pinMode()</code> function needed to be activated.</p>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>We learned about the two main parts of an Arduino program, <code>setup()</code> and <code>loop()</code>.</p>
+<p>In <code>setup()</code>, the <code>pinMode()</code> function needed to be activated.</p>
 
             </div>
             
@@ -91,11 +161,11 @@ void <span class="hljs-keyword">loop</span>()
         </li>
         
         
-        <li id="section-4">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <h2 id="circuit-2">Circuit 2</h2>
 
@@ -104,18 +174,30 @@ void <span class="hljs-keyword">loop</span>()
         </li>
         
         
-        <li id="section-5">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <blockquote>
 <p>Measure the position of a potentiometer and use it to
-control the blink rate of an LED. Turn the knob to make
-it blink faster or slower!</p>
+control the blink rate of an LED. Turn the knob to make it blink faster or slower!</p>
 </blockquote>
-<p>In this circuit, we learned about <strong>variables</strong> and the advantages over <strong>hard-coding</strong> values. We used the <strong>potentiometer</strong> to vary the resistance in a circuit. What are everyday examples of control knobs?</p>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>We learned about <strong>variables</strong> and the advantages over <strong>hard-coding</strong> values. We used the <strong>potentiometer</strong> to vary the resistance in a circuit. What are everyday examples of control knobs?</p>
 
             </div>
             
@@ -135,6 +217,78 @@ void <span class="hljs-keyword">loop</span>()
   delay(sensorValue);
   digitalWrite(ledPin, LOW);
   delay(sensorValue);
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <h2 id="circuit-3">Circuit 3</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <blockquote>
+<p>Cycle through a set of 7 distinct colors on the RGB LED. Then, cycle through a much larger set of colors.</p>
+</blockquote>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>We learned about <strong>functions</strong> (like mini-programs that can be used over and over again), <strong>for loops</strong> (repeating a task for a certain number of times), and <strong>if-then statements</strong> (making decisions based on comparing values).</p>
+<p>The <strong>RGB LED</strong> allows a variety of colors to be shown, based on the combination of the red, green, and blue LED.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>const int RED_PIN = 9;
+const int GREEN_PIN = 10;
+const int BLUE_PIN = 11;
+const int DISPLAY_TIME = 1000;
+
+void setup()
+{
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(BLUE_PIN, OUTPUT);
+}
+
+void loop()
+{
+  mainColors(); /* Cycles between 7 distinct colors*/
+  showSpectrum(); /* Fades from red to green to blue*/
+}
+
+void mainColors()
+{
+  /*Code shown in the Circuit 3 page */
+}
+void showSpectrum()
+{
+  /*for loop, if-then*/
+  RGB();
+  /*Code shown in the Circuit 3 page */
 }</pre></div></div>
             
         </li>

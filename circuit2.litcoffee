@@ -15,7 +15,7 @@ Read this document **first** before reading the comments in the Arduino **sketch
 *All sketches were written by SparkFun Electronics,
 with lots of help from the Arduino community.
 This code is completely free for any use.
-Visit http://learn.sparkfun.com/products/2 for SIK information.
+Visit the [SparkFun website](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-1-blinking-an-led) for SIK information.
 Visit http://www.arduino.cc to learn about the Arduino.*
 
 
@@ -23,10 +23,12 @@ Overview
 ---------------------------------------
 Circuit #2: POTENTIOMETER
 
-> Measure the position of a potentiometer and use it to
-control the blink rate of an LED. Turn the knob to make
-it blink faster or slower!  
+> Measure the position of a potentiometer and use it to control the blink rate of an LED. Turn the knob to make it blink faster or slower!
 
+---
+Click [here](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-2-reading-a-potentiometer) for images and further explanation from the SparkFun website.
+
+---
 A potentiometer, aka **pot**, is a variable resistor. As you turn the knob, the resistance changes. it is like swapping out resistors of higher and lower values. The change of resistance will change the voltage measured at different points in the circuit.
 
 Circuit #2 looks similar to Circuit #1. What's the difference?
@@ -51,11 +53,11 @@ Circuit #2 looks similar to Circuit #1. What's the difference?
     void loop()
     {
       int sensorValue;
-      sensorValue = analogRead(sensorPin);    
-      digitalWrite(ledPin, HIGH);     
-      delay(sensorValue);             
+      sensorValue = analogRead(sensorPin);
+      digitalWrite(ledPin, HIGH);
+      delay(sensorValue);
       digitalWrite(ledPin, LOW);
-      delay(sensorValue);   
+      delay(sensorValue);
     }
 
 Variables
@@ -71,7 +73,7 @@ the pins by name rather than number.
 * Note that variable names are case-sensitive! If you get an "(variable) was not declared in this scope" error, double-check that you typed the name correctly.*
 
 
-In particular, these two variables are **global** meaning that they can be used throughout the entire code. There will be one **local** variable declared within the `loop()` block.
+In particular, these two variables are **global**, meaning that they can be used throughout the entire code. There will be one **local** variable declared within the `loop()` block.
 
     int sensorPin = 0;
     int ledPin = 13;
@@ -105,14 +107,14 @@ The second line says to set `sensorValue` to whatever value the function `analog
     int sensorValue;
     sensorValue = analogRead(sensorPin);
 
-Circuit #2 is set up so that `Analog 0` is reading from the wiper (middle pin) of the potentiometer. As the potentiometer is turned, that voltage reading from the wiper will change. The voltage reading is read by `Analog 0` which in turn is assigned to `sensorValue`. 
+Circuit #2 is set up so that `Analog 0` is reading from the wiper (middle pin) of the potentiometer. As the potentiometer is turned, that voltage reading from the wiper will change. The voltage reading is read by `Analog 0` which in turn is assigned to `sensorValue`.
 
 How is `sensorValue` used?
 
-    digitalWrite(ledPin, HIGH);     
-    delay(sensorValue);             
+    digitalWrite(ledPin, HIGH);
+    delay(sensorValue);
     digitalWrite(ledPin, LOW);
-    delay(sensorValue); 
+    delay(sensorValue);
 
 
 Summary
@@ -136,9 +138,18 @@ The simple way to describe the beavhior is: **as you turn the potentiometer knob
     void loop()
     {
       int sensorValue;
-      sensorValue = analogRead(sensorPin);    
-      digitalWrite(ledPin, HIGH);     
-      delay(sensorValue);             
+      sensorValue = analogRead(sensorPin);
+      digitalWrite(ledPin, HIGH);
+      delay(sensorValue);
       digitalWrite(ledPin, LOW);
-      delay(sensorValue);   
+      delay(sensorValue);
     }
+
+[Go back to Index](index.html)
+
+1.  [Blinking an LED](circuit1.html)
+2.  *Reading a Potentiometer*
+3.  [Driving an RGB LED](circuit3.html)
+4.  [Driving Multiple LEDs](circuit4.html)
+5.  [Push Buttons](circuit5.html)
+6.  [Reading a Photoresistor](circuit6.html)

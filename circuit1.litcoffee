@@ -28,7 +28,7 @@ In Arduino, two forwardslashes, `//` tell the computer **NOT** to interpret the 
 *All sketches were written by SparkFun Electronics,
 with lots of help from the Arduino community.
 This code is completely free for any use.
-Visit http://learn.sparkfun.com/products/2 for SIK information.
+Visit the [SparkFun website](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-1-blinking-an-led) for SIK information.
 Visit http://www.arduino.cc to learn about the Arduino.*
 
 
@@ -41,6 +41,10 @@ Circuit #1: BLINKING A LED
 > Turn an LED on for one second, off for one second,
 and repeat forever.
 
+---
+Click [here](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-1-blinking-an-led) for images and further explanation from the SparkFun website.
+
+---
 A **function** is a named block of code, that performs a specific task. Many useful, essential **functions** are already built-in to the Arduino; others you'll name and write yourself for your own purposes.
 
 
@@ -131,3 +135,12 @@ To conclude, after the `setup()` function, the `loop()` consists of four simple 
       digitalWrite(13, LOW);
       delay(1000);
     }
+
+[Go back to Index](index.html)
+
+1.  *Blinking an LED*
+2.  [Reading a Potentiometer](circuit2.html)
+3.  [Driving an RGB LED](circuit3.html)
+4.  [Driving Multiple LEDs](circuit4.html)
+5.  [Push Buttons](circuit5.html)
+6.  [Reading a Photoresistor](circuit6.html)

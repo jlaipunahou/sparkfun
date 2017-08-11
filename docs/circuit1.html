@@ -5,11 +5,44 @@
   <title>SparkFun Inventor's Kit: Circuit #1</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-  <link rel="stylesheet" media="all" href="docco.css" />
+  <link rel="stylesheet" media="all" href="doccoAlt.css" />
 </head>
 <body>
   <div id="container">
     <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="circuit1.html">
+                  circuit1.litcoffee
+                </a>
+              
+                
+                <a class="source" href="circuit2.html">
+                  circuit2.litcoffee
+                </a>
+              
+                
+                <a class="source" href="circuit3.html">
+                  circuit3.litcoffee
+                </a>
+              
+                
+                <a class="source" href="index.html">
+                  index.litcoffee
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
     
     <ul class="sections">
         
@@ -66,7 +99,7 @@
               <p><em>All sketches were written by SparkFun Electronics,
 with lots of help from the Arduino community.
 This code is completely free for any use.
-Visit <a href="http://learn.sparkfun.com/products/2">http://learn.sparkfun.com/products/2</a> for SIK information.
+Visit the <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-1-blinking-an-led">SparkFun website</a> for SIK information.
 Visit <a href="http://www.arduino.cc">http://www.arduino.cc</a> to learn about the Arduino.</em></p>
 <h2 id="overview">Overview</h2>
 
@@ -86,7 +119,34 @@ Visit <a href="http://www.arduino.cc">http://www.arduino.cc</a> to learn about t
 <p>Turn an LED on for one second, off for one second,
 and repeat forever.</p>
 </blockquote>
-<p>A <strong>function</strong> is a named block of code, that performs a specific task. Many useful, essential <strong>functions</strong> are already built-in to the Arduino; others you’ll name and write yourself for your own purposes.</p>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Click <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-1-blinking-an-led">here</a> for images and further explanation from the SparkFun website.</p>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>A <strong>function</strong> is a named block of code, that performs a specific task. Many useful, essential <strong>functions</strong> are already built-in to the Arduino; others you’ll name and write yourself for your own purposes.</p>
 <p>All Arduino sketches MUST have two specific <strong>functions</strong>, named <code>setup()</code> and <code>loop()</code>. The Arduino runs these functions automatically when it starts up or if you press the reset button.</p>
 <ul>
 <li><code>setup()</code> is run only <em>once</em> at the beginning</li>
@@ -110,11 +170,11 @@ void <span class="hljs-keyword">loop</span>()
         </li>
         
         
-        <li id="section-5">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <h2 id="setup">Setup</h2>
 
@@ -123,11 +183,11 @@ void <span class="hljs-keyword">loop</span>()
         </li>
         
         
-        <li id="section-6">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>The Arduino has 13 digital input/output pins. These pins can be configured as either <strong>inputs</strong> or <strong>outputs</strong>. <strong>Output</strong> means it is sending out information. <strong>Input</strong> means it is receiving information, often from sensors.</p>
 <p><code>pinMode()</code> is a built-in function. It takes two values, which you type in
@@ -149,11 +209,11 @@ the parenthesis after the function name. These two values are the <strong>argume
         </li>
         
         
-        <li id="section-7">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <h2 id="loop">Loop</h2>
 
@@ -162,11 +222,11 @@ the parenthesis after the function name. These two values are the <strong>argume
         </li>
         
         
-        <li id="section-8">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>Each of the 13 digital pins send either an <code>ON</code> or an <code>OFF</code> signal. Another way to view it is to think of the <code>ON</code> being a <code>HIGH</code> voltage of 5 Volts or a <code>LOW</code> voltage of 0 volts.</p>
 <p>Because we have an LED connected to pin 13, if we make that
@@ -189,11 +249,11 @@ output pin HIGH or LOW. It takes two <strong>arguments</strong></p>
         </li>
         
         
-        <li id="section-9">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p><code>delay()</code> is a <strong>function</strong> that pauses for a given amount of time. It takes one value, the amount of time to wait, measured in milliseconds. There are 1000 milliseconds in a second, so if you <code>delay(1000)</code>, it will pause for exactly one second.</p>
 
@@ -204,11 +264,11 @@ output pin HIGH or LOW. It takes two <strong>arguments</strong></p>
         </li>
         
         
-        <li id="section-10">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>To finish this code, <code>digitalWrite(13, LOW)</code> turns off the LED and then <code>delay(1000)</code> pauses the code.</p>
 
@@ -220,11 +280,11 @@ output pin HIGH or LOW. It takes two <strong>arguments</strong></p>
         </li>
         
         
-        <li id="section-11">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p>Because all of this is in a <code>loop()</code>, after the second <code>delay()</code>, your computer will go back to the beginning and follow the instructions in <code>loop()</code> again.</p>
 <h2 id="summary">Summary</h2>
@@ -234,11 +294,11 @@ output pin HIGH or LOW. It takes two <strong>arguments</strong></p>
         </li>
         
         
-        <li id="section-12">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p>To conclude, after the <code>setup()</code> function, the <code>loop()</code> consists of four simple commands that translate to the behavior of the blinking LED.</p>
 <ol>
@@ -258,6 +318,27 @@ output pin HIGH or LOW. It takes two <strong>arguments</strong></p>
   digitalWrite(<span class="hljs-number">13</span>, LOW);
   delay(<span class="hljs-number">1000</span>);
 }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><a href="index.html">Go back to Index</a></p>
+<ol>
+<li><em>Blinking an LED</em></li>
+<li><a href="circuit2.html">Reading a Potentiometer</a></li>
+<li><a href="circuit3.html">Driving an RGB LED</a></li>
+<li><a href="circuit4.html">Driving Multiple LEDs</a></li>
+<li><a href="circuit5.html">Push Buttons</a></li>
+<li><a href="circuit6.html">Reading a Photoresistor</a></li>
+</ol>
+
+            </div>
             
         </li>
         

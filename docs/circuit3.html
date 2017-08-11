@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>SparkFun Inventor's Kit: Circuit #3</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="doccoAlt.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="circuit1.html">
+                  circuit1.litcoffee
+                </a>
+              
+                
+                <a class="source" href="circuit2.html">
+                  circuit2.litcoffee
+                </a>
+              
+                
+                <a class="source" href="circuit3.html">
+                  circuit3.litcoffee
+                </a>
+              
+                
+                <a class="source" href="index.html">
+                  index.litcoffee
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="sparkfun-inventor-s-kit-circuit-3">SparkFun Inventor’s Kit: Circuit #3</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>We will use <strong>Arduino</strong> as the programming language for our SparkFun Inventor’s Kit circuits. The code has already been written for you. For every circuit, our goal is to:</p>
+<ol>
+<li>Read the code and understand what it does.</li>
+<li>Build it in Circuits.io to familiarize yourself with the components.</li>
+<li>Build the circuit with real components.</li>
+<li>Run the code to show real-life behavior.</li>
+<li>Modify the code to change the circuit’s behavior.</li>
+</ol>
+<p>Read this document <strong>first</strong> before reading the comments in the Arduino <strong>sketch</strong>.</p>
+<p><em>All sketches were written by SparkFun Electronics,
+with lots of help from the Arduino community.
+This code is completely free for any use.
+Visit the <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-1-blinking-an-led">SparkFun website</a> for SIK information.
+Visit <a href="http://www.arduino.cc">http://www.arduino.cc</a> to learn about the Arduino.</em></p>
+<h2 id="overview">Overview</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Circuit #3: RGB LEDs</p>
+<blockquote>
+<p>Cycle through a set of 7 distinct colors on the RGB LED. Then, cycle through a much larger set of colors.</p>
+</blockquote>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Click <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33/experiment-3-driving-an-rgb-led">here</a> for images and further explanation from the SparkFun website.</p>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>A RGB LED consists of 3 LEDs in one—red, green, and blue!</p>
+<p>The first part of the code should look familiar. Variables are declared and ports are initialized through <code>pinMode</code>.</p>
+<p>The <code>loop()</code> calls two yet-to-be-defined functions, <code>mainColors()</code> and <code>showSpectrum()</code>. The moment when either of the functions are called, then it will search the entire code for where <code>mainColors()</code> and <code>showSpectrum()</code> are defined.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>const int RED_PIN = 9;
+const int GREEN_PIN = 10;
+const int BLUE_PIN = 11;
+const int DISPLAY_TIME = 1000;
+
+void setup()
+{
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(BLUE_PIN, OUTPUT);
+}
+void loop()
+{
+  mainColors(); /* Cycles between 7 distinct colors*/
+  showSpectrum(); /* Fades from red to green to blue*/
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h2 id="functions">Functions</h2>
+<h3 id="maincolors-">mainColors()</h3>
+<p>So far, we have dealt with writing our own <code>setup()</code> and <code>loop()</code> functions, in addition to built-in functions such as <code>pinMode()</code> and <code>digitalWrite()</code>. Let’s talk about creating <strong>functions</strong> that consist of code that we want to use again and again.</p>
+<p>In the function <code>mainColors()</code>, three <code>digitalWrite()</code> commands create the color. If all three LEDs are <code>LOW</code>, that means no LEDs are on. Look through the Red, Green, and Blue sections of the code to verify that for each one, only the respective Pin is <code>HIGH</code>.</p>
+<p>Also, each color section has a <code>delay()</code> that shows that color for the time of <code>DISPLAY_TIME</code>. Does each color show for the same amount of time? If not, how would you change that?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>void mainColors()
+{
+  <span class="hljs-regexp">//</span> all LEDs <span class="hljs-literal">off</span>
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, LOW);
+  delay(DISPLAY_TIME);
+
+  <span class="hljs-regexp">//</span> Red
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, LOW);
+  delay(DISPLAY_TIME);
+
+  <span class="hljs-regexp">//</span> Green
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, LOW);
+  delay(DISPLAY_TIME);
+
+  <span class="hljs-regexp">//</span> Blue
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, HIGH);
+  delay(DISPLAY_TIME);
+
+  <span class="hljs-regexp">//</span> Yellow (Red <span class="hljs-keyword">and</span> Green)
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, LOW);
+  delay(DISPLAY_TIME);
+
+  <span class="hljs-regexp">//</span> Cyan (Green <span class="hljs-keyword">and</span> Blue)
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, HIGH);
+  delay(DISPLAY_TIME);
+
+  <span class="hljs-regexp">//</span> Purple (Red <span class="hljs-keyword">and</span> Blue)
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, HIGH);
+  delay(DISPLAY_TIME);
+
+  <span class="hljs-regexp">//</span> White (turn all the LEDs <span class="hljs-literal">on</span>)
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, HIGH);
+  delay(DISPLAY_TIME);
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <h3 id="showspectrum-">showSpectrum()</h3>
+<p><code>showSpectrum()</code> includes a sub-function called <code>RGB()</code> located within it. Also, there is the <code>delay()</code> function, which will wait for <code>10</code> milliseconds, which is a tenth of a second. <em>Why is this important in seeing the LED behave?</em></p>
+<h2 id="for-loops">For loops</h2>
+<p>In <code>&#39;showSpectrum()</code>, there is a <strong>for loop</strong>. The for loop will repeat the same code (the code within the curly braces <code>{}</code>) for a certain number of times.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>void showSpectrum()
+{
+  <span class="hljs-keyword">for</span> (int x = <span class="hljs-number">0</span>; x &lt;= <span class="hljs-number">767</span>; x++)
+  {
+    RGB(x);      <span class="hljs-regexp">//</span> Increment x <span class="hljs-keyword">and</span> call RGB() to progress through colors.
+    delay(<span class="hljs-number">10</span>);   <span class="hljs-regexp">//</span> Delay <span class="hljs-keyword">for</span> <span class="hljs-number">10</span> ms (<span class="hljs-number">1</span>/<span class="hljs-number">100</span>th <span class="hljs-keyword">of</span> a second) - to help the <span class="hljs-string">"smoothing"</span>
+  }
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Within the parentheses <code>()</code>, there are three settings for any <strong>for loop</strong>.</p>
+<ol>
+<li>Initialize the variable</li>
+<li>How far will it go</li>
+<li>What to do after each step</li>
+</ol>
+<p>In our specific for loop, these are the settings</p>
+<ol>
+<li>An integer named <code>x</code>, starting at the value of <code>0</code></li>
+<li>The loop will <strong>stop</strong> once <code>x</code> is equal to <code>768</code></li>
+<li>After each time the code in the braces <code>{}</code> is executed by the program, <code>x</code> will <strong>increment</strong> by one, which is a fancy way to say <strong>increase</strong>.</li>
+</ol>
+<p><em>How many times will the for loop execute?</em></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>for (int x = 0; x &lt;= 767; x++)
+{
+  /* Repeated code goes here, where some variable `x` is increased (incremented)
+  each time the program goes through this code*/
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <h3 id="rgb-">RGB()</h3>
+<p>Based on the commenting in the original Arduino code, we know that <code>RGB()</code> it will take a color value based on an <code>int</code> (integer) number and show that color. That is <strong>what</strong> it does. Now let’s learn <strong>how</strong> does it show that color?</p>
+<p>Why do we have the parentheses <code>()</code> after the function name? So far, there has been nothing there. However, <code>RGB()</code>‘s definition has something. The code in the parentheses is called the <strong>argument</strong>. <code>RGB()</code> <strong>function</strong> will take that <strong>argument</strong> and do something to it. At the end of the function, there will be a result based on whatever you’ve programmed. In this case, the RGB LED will show a specific color.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>void RGB(int color)
+/* If you think of RGB() as a verb, then the argument (int color) is a direct object*/</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Within <code>RGB()</code>, there are three parts. The first part of initializing variables is familiar.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>void RGB(int color)
+{
+  int redIntensity;
+  int greenIntensity;
+  int blueIntensity;
+}
+color = constrain(color, <span class="hljs-number">0</span>, <span class="hljs-number">767</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <ul>
+<li>Initializing <strong>local</strong> variables: <code>redIntensity</code>, <code>greenIntensity</code>, <code>blueIntensity</code><ul>
+<li>These variables are only accessible within <code>RGB()</code>. A <strong>global</strong> variable is accessible everywhere.</li>
+</ul>
+</li>
+<li>Making decisions based on the <code>color</code> variable, using an <strong>if-then</strong> statement.</li>
+<li>Sending the intensity values to the LEDs via <code>analogWrite()</code></li>
+</ul>
+<p>We also see <code>constrain()</code>. Arduino has documentation on what the function does. Learning new functions as you need them is an important skill. Click <a href="https://www.arduino.cc/en/Reference/Constrain">here</a> to see how to use <code>constrain()</code>.</p>
+<hr>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <h2 id="if-then-statements">IF-then statements</h2>
+<p><strong>If-then statements</strong> are another essential building block in programming. If the statement in the parentheses <code>()</code> are true, then do what is in the braces <code>{}</code>. An <code>else if</code> can be used to define other possible true statements. The <code>else</code> says if nothing in the <code>if</code> or <code>else if</code> was true, then do what is after <code>else</code>.</p>
+<p>The if statement breaks down <code>color</code> into three numberical ranges, where the values of <code>redIntensity</code>, <code>greenIntensity</code>, <code>blueIntensity</code> may or may not be changed, depending on what is in the braces <code>{}</code>.</p>
+<ol>
+<li>(0 - 255) - red to green</li>
+<li>(256 - 511) - green to blue</li>
+<li>(&gt;= 512)- blue to red</li>
+</ol>
+<p>Whatever are the values of <code>redIntensity</code>, <code>greenIntensity</code>, <code>blueIntensity</code> at the end of this big <strong>if-then</strong> statement, the values are then sent to the LED via <code>analogWrite()</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (color &lt;= <span class="hljs-number">255</span>)
+{
+  redIntensity = <span class="hljs-number">255</span> - color;    <span class="hljs-regexp">//</span> red goes <span class="hljs-keyword">from</span> <span class="hljs-literal">on</span> to <span class="hljs-literal">off</span>
+  greenIntensity = color;        <span class="hljs-regexp">//</span> green goes <span class="hljs-keyword">from</span> <span class="hljs-literal">off</span> to <span class="hljs-literal">on</span>
+  blueIntensity = <span class="hljs-number">0</span>;             <span class="hljs-regexp">//</span> blue <span class="hljs-keyword">is</span> always <span class="hljs-literal">off</span>
+}
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color &lt;= <span class="hljs-number">511</span>)
+{
+  redIntensity = <span class="hljs-number">0</span>;                     <span class="hljs-regexp">//</span> red <span class="hljs-keyword">is</span> always <span class="hljs-literal">off</span>
+  greenIntensity = <span class="hljs-number">511</span> - color;         <span class="hljs-regexp">//</span> green <span class="hljs-literal">on</span> to <span class="hljs-literal">off</span>
+  blueIntensity = color - <span class="hljs-number">256</span>;          <span class="hljs-regexp">//</span> blue <span class="hljs-literal">off</span> to <span class="hljs-literal">on</span>
+}
+<span class="hljs-keyword">else</span>
+{
+  redIntensity = color - <span class="hljs-number">512</span>;         <span class="hljs-regexp">//</span> red <span class="hljs-literal">off</span> to <span class="hljs-literal">on</span>
+  greenIntensity = <span class="hljs-number">0</span>;                 <span class="hljs-regexp">//</span> green <span class="hljs-keyword">is</span> always <span class="hljs-literal">off</span>
+  blueIntensity = <span class="hljs-number">767</span> - color;        <span class="hljs-regexp">//</span> blue <span class="hljs-literal">on</span> to <span class="hljs-literal">off</span>
+}
+
+<span class="hljs-regexp">//</span> <span class="hljs-string">"send"</span> intensity values to the Red, Green, Blue Pins using analogWrite()
+analogWrite(RED_PIN, redIntensity);
+analogWrite(GREEN_PIN, greenIntensity);
+analogWrite(BLUE_PIN, blueIntensity);
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <h2 id="summary">Summary</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>There was a lot covered in Circuit #3.</p>
+<ul>
+<li>The essential concept is that the RGB will show a color based on a stored variable.<ul>
+<li>In Circuit #2, the variable changed based on the potentiometer.</li>
+<li>However, in this circuit, it is based on pre-programmed values.</li>
+<li>It changes using a combination of a <strong>for loop</strong> and an <strong>if-then statement</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>Three functions were written specfically for the Circuit #3 programming, which were called in the main <code>loop()</code></p>
+<ul>
+<li><code>mainColors()</code>: defined a sequence of seven distinct colors, each of which was a combination of the R, G, B either on or off.</li>
+<li><code>showSpectrum()</code>: <strong>for loop</strong> cycled through hundreds of shades of color, separated by a tenth of a second<ul>
+<li><code>RGB()</code>: took an <strong>argument</strong> variable, <code>x</code> from the <strong>for loop</strong>, and matched it in one of three ranges. Using the <strong>if-then</strong>, it assigned a value</li>
+</ul>
+</li>
+</ul>
+<h3 id="-how-might-you-program-you-own-sequence-of-colors-"><strong>How might you program you own sequence of colors?</strong></h3>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>const int RED_PIN = 9;
+const int GREEN_PIN = 10;
+const int BLUE_PIN = 11;
+const int DISPLAY_TIME = 1000;
+
+void setup()
+{
+  pinMode(RED_PIN, OUTPUT); pinMode(GREEN_PIN, OUTPUT); pinMode(BLUE_PIN, OUTPUT);
+}
+void loop()
+{
+  mainColors(); /* Cycles between 7 distinct colors*/
+  showSpectrum(); /* Fades from red to green to blue*/
+}
+void mainColors()
+{
+  // all LEDs off, Red, Green, Yellow, Cyan, Purple, White all defined and shown for `DISPLAY_TIME`
+
+}
+void showSpectrum()
+{
+  for (int x = 0; x &lt;= 767; x++)
+  {
+    RGB(x);      // Increment x and call RGB() to progress through colors.
+    delay(10);   // Delay for 10 ms (1/100th of a second) - to help the "smoothing"
+  }
+}
+void RGB(int color)
+{
+  int redIntensity;
+  int greenIntensity;
+  int blueIntensity;
+}
+color = constrain(color, 0, 767);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><a href="index.html">Go back to Index</a></p>
+<ol>
+<li><a href="circuit1.html">Blinking an LED</a></li>
+<li><a href="circuit2.html">Reading a Potentiometer</a></li>
+<li><em>Driving an RGB LED</em></li>
+<li><a href="circuit4.html">Driving Multiple LEDs</a></li>
+<li><a href="circuit5.html">Push Buttons</a></li>
+<li><a href="circuit6.html">Reading a Photoresistor</a></li>
+</ol>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (color &lt;= <span class="hljs-number">255</span>)
+{
+  redIntensity = <span class="hljs-number">255</span> - color;    <span class="hljs-regexp">//</span> red goes <span class="hljs-keyword">from</span> <span class="hljs-literal">on</span> to <span class="hljs-literal">off</span>
+  greenIntensity = color;        <span class="hljs-regexp">//</span> green goes <span class="hljs-keyword">from</span> <span class="hljs-literal">off</span> to <span class="hljs-literal">on</span>
+  blueIntensity = <span class="hljs-number">0</span>;             <span class="hljs-regexp">//</span> blue <span class="hljs-keyword">is</span> always <span class="hljs-literal">off</span>
+}
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (color &lt;= <span class="hljs-number">511</span>)
+{
+  redIntensity = <span class="hljs-number">0</span>;                     <span class="hljs-regexp">//</span> red <span class="hljs-keyword">is</span> always <span class="hljs-literal">off</span>
+  greenIntensity = <span class="hljs-number">511</span> - color;         <span class="hljs-regexp">//</span> green <span class="hljs-literal">on</span> to <span class="hljs-literal">off</span>
+  blueIntensity = color - <span class="hljs-number">256</span>;          <span class="hljs-regexp">//</span> blue <span class="hljs-literal">off</span> to <span class="hljs-literal">on</span>
+}
+<span class="hljs-keyword">else</span>
+{
+  redIntensity = color - <span class="hljs-number">512</span>;         <span class="hljs-regexp">//</span> red <span class="hljs-literal">off</span> to <span class="hljs-literal">on</span>
+  greenIntensity = <span class="hljs-number">0</span>;                 <span class="hljs-regexp">//</span> green <span class="hljs-keyword">is</span> always <span class="hljs-literal">off</span>
+  blueIntensity = <span class="hljs-number">767</span> - color;        <span class="hljs-regexp">//</span> blue <span class="hljs-literal">on</span> to <span class="hljs-literal">off</span>
+}
+
+<span class="hljs-regexp">//</span> <span class="hljs-string">"send"</span> intensity values to the Red, Green, Blue Pins using analogWrite()
+analogWrite(RED_PIN, redIntensity);
+analogWrite(GREEN_PIN, greenIntensity);
+analogWrite(BLUE_PIN, blueIntensity);
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
